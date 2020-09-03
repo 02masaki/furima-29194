@@ -27,13 +27,16 @@ Things you may want to cover:
 
 ## users テーブル
 
-| Column    | Type     | Options               |
-| --------- | -------- | --------------------- |
-| name      | string   | null: false           |
-| email     | string   | null: false           |
-| password  | string   | null: false           |
-| nick_name | string   | null: false           |
-| birth_day | integer  | null: false           |
+| Column        | Type     | Options               |
+| ------------- | -------- | --------------------- |
+| first_name    | string   | null: false           |
+| family_name   | string   | null: false           |
+| first_name_re | string   | null: false           |
+| family_name_re| string   | null: false           |
+| email         | string   | null: false           |
+| password      | string   | null: false           |
+| nick_name     | string   | null: false           |
+| birth_day     | date     | null: false           |
 
 ### Association
 
@@ -48,14 +51,17 @@ Things you may want to cover:
 | name      | string    | null: false                    |
 | price     | integer   | null: false                    |
 | category  | string    | null: false                    |
-| image     | text      |                                |
-| content   | text      |                                |
-| user_id   | references| null: false, foreign_key: true |
+| image     | text      | null: false                    |
+| content   | text      | null: false                    |
+| status    | string    | null: false                    |
+| burden    | string    | null: false                    |
+| duration  | integer   | null: false                    |
+| user      | references| null: false, foreign_key: true |
 
 ### Association
 
 - has_many :comments
-- has_one :buys
+- has_one :buy
 - belongs_to :user
 
 ## comments テーブル
@@ -63,8 +69,8 @@ Things you may want to cover:
 | Column    | Type      | Options                        |
 | --------- | --------- | ------------------------------ |
 | comment   | text      | null: false                    |
-| user_id   | references| null: false, foreign_key: true |
-| item_id   | references| null: false, foreign_key: true |
+| user      | references| null: false, foreign_key: true |
+| item      | references| null: false, foreign_key: true |
 
 ### Association
 
@@ -75,20 +81,25 @@ Things you may want to cover:
 
 | Column    | Type      | Options                        |
 | --------- | --------- | ------------------------------ |
-| user_id   | references| null: false, foreign_key: true |
-| item_id   | references| null: false, foreign_key: true |
+| user      | references| null: false, foreign_key: true |
+| item      | references| null: false, foreign_key: true |
 
 ### Association
 
 - belongs_to :user
 - belongs_to :item
-- has_one :addresses
+- has_one :address
 
 ## addresses テーブル
 
-| Column    | Type      | Options                        |
-| --------- | --------- | ------------------------------ |
-| address   | string    | null: false                    |
+| Column     | Type      | Options                        |
+| ---------- | --------- | ------------------------------ |
+| postal_code| integer   | null: false                    |
+| prefecture | string    | null: false                    |
+| city       | string    | null: false                    |
+| address    | string    | null: false                    |
+| building   | string    | null: false                    |
+| tel        | integer   | null: false                    |
 
 ### Association
 
