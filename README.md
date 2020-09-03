@@ -50,12 +50,7 @@ Things you may want to cover:
 | --------- | --------- | ------------------------------ |
 | name      | string    | null: false                    |
 | price     | integer   | null: false                    |
-| category  | string    | null: false                    |
-| image     | text      | null: false                    |
 | content   | text      | null: false                    |
-| status    | string    | null: false                    |
-| burden    | string    | null: false                    |
-| duration  | integer   | null: false                    |
 | user      | references| null: false, foreign_key: true |
 
 ### Association
@@ -94,12 +89,12 @@ Things you may want to cover:
 
 | Column     | Type      | Options                        |
 | ---------- | --------- | ------------------------------ |
-| postal_code| integer   | null: false                    |
+| postal_code| string    | null: false                    |
 | prefecture | string    | null: false                    |
 | city       | string    | null: false                    |
 | address    | string    | null: false                    |
-| building   | string    | null: false                    |
-| tel        | integer   | null: false                    |
+| building   | string    |                                |
+| tel        | string    | null: false                    |
 
 ### Association
 
