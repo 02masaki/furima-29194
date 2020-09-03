@@ -27,21 +27,20 @@ Things you may want to cover:
 
 ## users テーブル
 
-| Column        | Type     | Options               |
-| ------------- | -------- | --------------------- |
-| first_name    | string   | null: false           |
-| family_name   | string   | null: false           |
-| first_name_re | string   | null: false           |
-| family_name_re| string   | null: false           |
-| email         | string   | null: false           |
-| password      | string   | null: false           |
-| nick_name     | string   | null: false           |
-| birth_day     | date     | null: false           |
+| Column          | Type     | Options               |
+| --------------- | -------- | --------------------- |
+| first_name      | string   | null: false           |
+| family_name     | string   | null: false           |
+| first_name_kana | string   | null: false           |
+| family_name_kana| string   | null: false           |
+| email           | string   | null: false           |
+| password        | string   | null: false           |
+| nick_name       | string   | null: false           |
+| birth_day       | date     | null: false           |
 
 ### Association
 
 - has_many :items
-- has_many :comments
 - has_many :buys
 
 ## items テーブル
@@ -52,25 +51,23 @@ Things you may want to cover:
 | price     | integer   | null: false                    |
 | content   | text      | null: false                    |
 | user      | references| null: false, foreign_key: true |
+| item_genre| references| null: false, foreign_key: true |
 
 ### Association
 
-- has_many :comments
 - has_one :buy
 - belongs_to :user
 
-## comments テーブル
+## item_genres 　ActiveHash
 
 | Column    | Type      | Options                        |
 | --------- | --------- | ------------------------------ |
-| comment   | text      | null: false                    |
-| user      | references| null: false, foreign_key: true |
-| item      | references| null: false, foreign_key: true |
+| category  |　
+| status    |
+| burden    |
+| duration  |
+| prefecture|
 
-### Association
-
-- belongs_to :user
-- belongs_to :item
 
 ## buys テーブル
 
@@ -84,6 +81,7 @@ Things you may want to cover:
 - belongs_to :user
 - belongs_to :item
 - has_one :address
+- has_one :card
 
 ## addresses テーブル
 
@@ -95,6 +93,20 @@ Things you may want to cover:
 | address    | string    | null: false                    |
 | building   | string    |                                |
 | tel        | string    | null: false                    |
+| buy        | references| null: false, foreign_key: true |
+
+### Association
+
+- belongs_to :buy
+
+## cards テーブル
+
+| Column     | Type      | Options                        |
+| ---------- | --------- | ------------------------------ |
+| num        | string    | null: false                    |
+| dead_line  | string    | null: false                    |
+| security   | string    | null: false                    |
+| buy        | references| null: false, foreign_key: true |
 
 ### Association
 
