@@ -45,29 +45,22 @@ Things you may want to cover:
 
 ## items テーブル
 
-| Column    | Type      | Options                        |
-| --------- | --------- | ------------------------------ |
-| name      | string    | null: false                    |
-| price     | integer   | null: false                    |
-| content   | text      | null: false                    |
-| user      | references| null: false, foreign_key: true |
-| item_genre| references| null: false, foreign_key: true |
+| Column      | Type      | Options                        |
+| ----------- | --------- | ------------------------------ |
+| name        | string    | null: false                    |
+| price       | integer   | null: false                    |
+| content     | text      | null: false                    |
+| user        | references| null: false, foreign_key: true |
+| category_id | integer   | null: false                    |
+| status_id   | integer   | null: false                    |
+| burden_id   | integer   | null: false                    |
+| duration    | integer   | null: false                    |
+| prefecture  | integer   | null: false                    |
 
 ### Association
 
 - has_one :buy
 - belongs_to :user
-
-## item_genres 　ActiveHash
-
-| Column    | Type      | Options                        |
-| --------- | --------- | ------------------------------ |
-| category  |　
-| status    |
-| burden    |
-| duration  |
-| prefecture|
-
 
 ## buys テーブル
 
@@ -81,32 +74,18 @@ Things you may want to cover:
 - belongs_to :user
 - belongs_to :item
 - has_one :address
-- has_one :card
 
 ## addresses テーブル
 
-| Column     | Type      | Options                        |
-| ---------- | --------- | ------------------------------ |
-| postal_code| string    | null: false                    |
-| prefecture | string    | null: false                    |
-| city       | string    | null: false                    |
-| address    | string    | null: false                    |
-| building   | string    |                                |
-| tel        | string    | null: false                    |
-| buy        | references| null: false, foreign_key: true |
-
-### Association
-
-- belongs_to :buy
-
-## cards テーブル
-
-| Column     | Type      | Options                        |
-| ---------- | --------- | ------------------------------ |
-| num        | string    | null: false                    |
-| dead_line  | string    | null: false                    |
-| security   | string    | null: false                    |
-| buy        | references| null: false, foreign_key: true |
+| Column        | Type      | Options                        |
+| ------------- | --------- | ------------------------------ |
+| postal_code   | string    | null: false                    |
+| prefecture_id | integer   | null: false                    |
+| city          | string    | null: false                    |
+| address       | string    | null: false                    |
+| building      | string    |                                |
+| tel           | string    | null: false                    |
+| buy           | references| null: false, foreign_key: true |
 
 ### Association
 
