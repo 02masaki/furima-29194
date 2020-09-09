@@ -2,6 +2,7 @@ class ItemsController < ApplicationController
   before_action :move_to_index, except: [:index, :show]
   def index
     @items = Item.all
+    @item = Item.order("created_at DESC")
   end
 
   def new
@@ -9,7 +10,12 @@ class ItemsController < ApplicationController
   end
 
   def create
-    Item.create(item_params)
+    @item = Item.create(item_params)
+    if @item.save
+      redirect_to root_path
+    else
+      render :new
+    end
   end
 
   def show
@@ -18,7 +24,7 @@ class ItemsController < ApplicationController
   private
 
   def item_params
-    params.require(:item).permit(:name, :price, :content)
+    params.require(:item).permit(:name, :price, :content, :category_id, :status_id, :burden_id, :duration_id, :prefecture_id)
   end
 
   def move_to_index
