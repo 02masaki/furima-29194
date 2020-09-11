@@ -3,7 +3,7 @@ window.addEventListener('DOMContentLoaded', function(){
 
   prices.addEventListener('keyup', function(){
     const price = prices.value;
-    const fee = price / 10;
+    const fee = Math.floor(price / 10);
     const profit = (price - fee);
     const tax = document.getElementById("add-tax-price");
     const sale = document.getElementById("profit") 
