@@ -16,6 +16,7 @@ class ItemsController < ApplicationController
       render :new
     end
   end
+
   def show
     @items = Item.find(params[:id])
     @user = User.find(@items.user_id)
@@ -24,6 +25,19 @@ class ItemsController < ApplicationController
     @burden = Burden.find(@items.burden_id)
     @duration = Duration.find(@items.duration_id)
     @prefecture = Prefecture.find(@items.prefecture_id)
+  end
+
+  def edit
+    @items = Item.find(params[:id])
+  end
+
+  def update
+    @items = Item.find(params[:id])
+    if @items.update(item_params)
+      redirect_to root_path
+    else
+      render :edit
+    end
   end
   private
 
