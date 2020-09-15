@@ -18,13 +18,7 @@ class ItemsController < ApplicationController
   end
 
   def show
-    @items = Item.find(params[:id])
-    @user = User.find(@items.user_id)
-    @category = Category.find(@items.category_id)
-    @status = Status.find(@items.status_id)
-    @burden = Burden.find(@items.burden_id)
-    @duration = Duration.find(@items.duration_id)
-    @prefecture = Prefecture.find(@items.prefecture_id)
+    @item = Item.find(params[:id]) 
   end
 
   def edit
