@@ -58,5 +58,10 @@ RSpec.describe OrderAddress, type: :model do
       @order_address.valid?
       expect(@order_address.errors.full_messages).to include("Tel is invalid")
     end
+    it 'telにハイフンをつけると保存できない' do
+      @order_address.tel = 070-8722-7640
+      @order_address.valid?
+      expect(@order_address.errors.full_messages).to include("Tel is invalid")
+    end
   end
 end
