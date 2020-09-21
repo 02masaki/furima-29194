@@ -1,7 +1,12 @@
 class OrdersController < ApplicationController
   def index
     @item = Item.find(params[:item_id])
-    @order = OrderAddress.new
+    @order_address = OrderAddress.new
+    if user_signed_in?
+      render :index
+    else
+      render template: "devise/sessions/new"
+    end
   end
 
   def create
