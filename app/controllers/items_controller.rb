@@ -3,6 +3,7 @@ class ItemsController < ApplicationController
   before_action :set_items, only:[:show, :edit, :update, :destroy]
   def index
     @items = Item.order("created_at DESC")
+    @order = Order.all
   end
 
   def new
