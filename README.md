@@ -39,6 +39,7 @@ Things you may want to cover:
 | nick_name             | string   | null: false           |
 | birth_day             | date     | null: false           |
 
+
 ### Association
 
 - has_many :items
