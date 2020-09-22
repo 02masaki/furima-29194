@@ -31,13 +31,13 @@ gem 'bootsnap', '>= 1.4.2', require: false
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
-  gem 'devise'
+  # gem 'devise'
   gem 'rspec-rails', '~> 4.0.0'
   gem 'factory_bot_rails'
   gem 'faker'
   gem 'pry-rails'
   gem 'gimei'
-  gem 'active_hash'
+  # gem 'active_hash'
 end
 
 group :development do
@@ -65,7 +65,8 @@ group :production do
   gem 'rails_12factor'
 end
 
-
+gem 'devise'
 gem 'mini_magick'
 gem 'image_processing', '~> 1.2'
 gem 'payjp'
+gem 'active_hash'
