@@ -5,7 +5,7 @@ require 'rails/all'
 # Require the gems listed in Gemfile, including any gems
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
-
+ActiveSupport::Deprecation.silenced = true if Rails.version == '6.0.3.2'
 module Furima29194
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
