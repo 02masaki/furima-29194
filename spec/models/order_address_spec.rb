@@ -6,6 +6,7 @@ RSpec.describe OrderAddress, type: :model do
       @order_address = FactoryBot.build(:order_address)
     end
 
+    context '商品を購入できるとき'
     it 'すべての値が正しく入力されていれば保存できること' do
       expect(@order_address).to be_valid
     end
@@ -13,6 +14,8 @@ RSpec.describe OrderAddress, type: :model do
       @order_address.building = ""
       expect(@order_address).to be_valid
     end
+
+    context '商品が購入できないとき'
     it 'tokenがないと購入できないこと' do
       @order_address.token = nil
       @order_address.valid?
